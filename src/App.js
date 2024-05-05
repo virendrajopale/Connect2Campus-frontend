@@ -28,6 +28,10 @@ import LogSign from "./Components/Drives/LogSign";
 import DriveStudents from "./Components/Drives/DriveStudents";
 import Contact from "./Pages/Contact";
 import LoginImage from "./Pages/LoginImage";
+import Loader from "./Pages/Loader";
+
+
+
 const App = () => {
   const navigate = useNavigate();
   const [role, setrole] = useState(null);
@@ -63,7 +67,7 @@ const App = () => {
          
         <Route path="/" element={isLoggedIn ? <AdminHome /> : <Navigate to="/user/login" />} />
         <Route path="/user/profile" element={isLoggedIn ? <Profile /> : <Navigate to="/user/login" />} />
-        <Route path="/user/signup" element={<Signup />} />
+        <Route path="/user/signup" element={<Loader />} />
         <Route path="/apply/:id" element={<ApplyToDrive />} />
         {/* <Route path="/user/login11" element={<LogSign role={role} setrole={setrole} />} /> */}
         <Route path="/user/login" element={<LogSign role={"Student"} setrole={setrole} />} />

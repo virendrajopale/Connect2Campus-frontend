@@ -7,11 +7,11 @@ import { FaUserCheck, FaRegPaperPlane } from 'react-icons/fa';
 import { fetchMyProfile } from '../../redux/Actions/StudentAction';
 import toast from 'react-hot-toast';
 import SingleDrive from './SingleDrive';
-
+import Loader from 'react-js-loader'
 export const AllDrives = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { drives } = useSelector(state => state.drives);
+  const { drives,loading } = useSelector(state => state.drives);
   const { profile } = useSelector(state => state.profile);
   const [getId, setGetId] = useState(drives && drives[0] && drives[0]._id);
   const role = sessionStorage.getItem('role');
@@ -32,7 +32,7 @@ export const AllDrives = () => {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-2 h-screen font-sand">
         <div className="overflow-y-auto h-screen md:h-auto">
           <div className="flex flex-col gap-2">
-            {drives &&
+            {loading?<Loader/>:(drives &&
               drives.map((dt, index) => {
                 const applicationIndex = profile && profile.applicationHistory.findIndex(app => app.DriveId === dt._id);
                 const applied = applicationIndex !== -1;
@@ -82,7 +82,7 @@ export const AllDrives = () => {
                     </div>
                   </div>
                 );
-              })}
+              }))}
           </div>
         </div>
         <div className="md:col-span-3 md:block ">

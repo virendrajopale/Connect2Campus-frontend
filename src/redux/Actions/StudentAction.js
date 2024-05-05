@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+const PORT = process.env.REACT_APP_PORT;
 // Fetch my profile
 export const fetchMyProfile = createAsyncThunk('fetchMyProfile', async (_, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
     
-    const response = await axios.get('/Student/profile/myprofile', {
+    const response = await axios.get(`${PORT}/Student/profile/myprofile`, {
       headers: {
           "auth-tocken": token
       }
@@ -22,7 +22,7 @@ export const fetchMyProfile = createAsyncThunk('fetchMyProfile', async (_, { rej
 export const fetchProfileByID = createAsyncThunk('fetchProfileByID', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.get(`/Student/profile/display/${id}`, {
+    const response = await axios.get(`${PORT}/Student/profile/display/${id}`, {
       headers: {
           "auth-tocken": token
       }
@@ -36,7 +36,7 @@ export const fetchProfileByID = createAsyncThunk('fetchProfileByID', async (id, 
 export const displayProject = createAsyncThunk('displayProject', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.get(`/Student/profile/displayproject/${id}`,{
+    const response = await axios.get(`${PORT}/Student/profile/displayproject/${id}`,{
       headers: {
           "auth-tocken": token
       }
@@ -51,7 +51,7 @@ export const displayProject = createAsyncThunk('displayProject', async (id, { re
 export const addProject = createAsyncThunk('addProject', async (projectData, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.post('/Student/profile/addproject', projectData, {
+    const response = await axios.post(`${PORT}/Student/profile/addproject`, projectData, {
       headers: {
           "auth-tocken": token
       }
@@ -68,7 +68,7 @@ export const updateProject = createAsyncThunk('updateProject', async ({ id, proj
   try {
 
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.put(`/Student/profile/updateproject/${id}`, projects,{
+    const response = await axios.put(`${PORT}/Student/profile/updateproject/${id}`, projects,{
       headers: {
           "auth-tocken": token
       }
@@ -83,7 +83,7 @@ export const updateProject = createAsyncThunk('updateProject', async ({ id, proj
 export const deleteProject = createAsyncThunk('deleteProject', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.delete(`/Student/profile/deleteproject/${id}`,{
+    const response = await axios.delete(`${PORT}/Student/profile/deleteproject/${id}`,{
       headers: {
           "auth-tocken": token
       }
@@ -98,7 +98,7 @@ export const deleteProject = createAsyncThunk('deleteProject', async (id, { reje
 export const displayEducation = createAsyncThunk('displayEducation', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.get(`/Student/profile/displayeduction/${id}`,{
+    const response = await axios.get(`${PORT}/Student/profile/displayeduction/${id}`,{
       headers: {
           "auth-tocken": token
       }
@@ -113,7 +113,7 @@ export const displayEducation = createAsyncThunk('displayEducation', async (id, 
 export const addEducation = createAsyncThunk('addEducation', async (educationData, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.post('/Student/profile/addeducation', educationData,{
+    const response = await axios.post(`${PORT}/Student/profile/addeducation`, educationData,{
       headers: {
           "auth-tocken": token
       }
@@ -129,7 +129,7 @@ export const updateEducation = createAsyncThunk('updateEducation', async ({ id, 
   try {
     console.log(edu)
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.put(`/Student/profile/updateeducation/${id}`, edu,{
+    const response = await axios.put(`${PORT}/Student/profile/updateeducation/${id}`, edu,{
       headers: {
           "auth-tocken": token
       }
@@ -144,7 +144,7 @@ export const updateEducation = createAsyncThunk('updateEducation', async ({ id, 
 export const deleteEducation = createAsyncThunk('deleteEducation', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.delete(`/Student/profile/deleteeducation/${id}`,{
+    const response = await axios.delete(`${PORT}/Student/profile/deleteeducation/${id}`,{
       headers: {
           "auth-tocken": token
       }
@@ -158,7 +158,7 @@ export const deleteEducation = createAsyncThunk('deleteEducation', async (id, { 
 export const displayExperience = createAsyncThunk('displayExperience', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.get(`/Student/profile/displayexperience/${id}`,{
+    const response = await axios.get(`${PORT}/Student/profile/displayexperience/${id}`,{
       headers: {
           "auth-tocken": token
       }
@@ -173,7 +173,7 @@ export const displayExperience = createAsyncThunk('displayExperience', async (id
 export const addExperience = createAsyncThunk('addExperience', async (experienceData, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.post('/Student/profile/addexp', experienceData,{
+    const response = await axios.post(`${PORT}/Student/profile/addexp`, experienceData,{
       headers: {
           "auth-tocken": token
       }
@@ -189,7 +189,7 @@ export const updateExperience = createAsyncThunk('updateExperience', async ({ id
   console.log(exp)
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.put(`/Student/profile/updateexp/${id}`, exp,{
+    const response = await axios.put(`${PORT}/Student/profile/updateexp/${id}`, exp,{
       headers: {
           "auth-tocken": token
       }
@@ -204,7 +204,7 @@ export const updateExperience = createAsyncThunk('updateExperience', async ({ id
 export const deleteExperience = createAsyncThunk('deleteExperience', async (id, { rejectWithValue }) => {
   try {
     const token = sessionStorage.getItem('tocken');
-    const response = await axios.delete(`/Student/profile/deleteexp/${id}`,{
+    const response = await axios.delete(`${PORT}/Student/profile/deleteexp/${id}`,{
       headers: {
           "auth-tocken": token
       }

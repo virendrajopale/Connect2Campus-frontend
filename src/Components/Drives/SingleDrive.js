@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 const SingleDrive = ({drive}) => {
   const dispatch = useDispatch();
   // const { drive } = useSelector(state => state.drives);
-  console.log(drive)
+
 
   
 
@@ -32,7 +32,9 @@ const SingleDrive = ({drive}) => {
         <div className=" bg-blue-400 bg-opacity-20   backdrop-blur-sm rounded-lg shadow-md p-6 flex flex-col gap-2">
           <h2 className="text-3xl bg-black/20 backdrop-blur-sm shadow-md text-white font-bold mb-4 flex items-center self-center border rounded-full p-1 pr-4 pl-4 ">
             <FcBusiness size={30} className="mr-2" />
-            {drive.CompanyName}
+            {
+              drive.CompanyName
+            }
           </h2>
           <div className="gap-2 bg-gray-500/50 backdrop-blur-lg rounded-md p-2 flex flex-col items-center">
             <h3 className="text-lg font-semibold flex items-center  rounded-full w-fit p-2 border-[1px] border-white">

@@ -21,6 +21,10 @@ export const driveSlice=createSlice({
     // },
     extraReducers:builder=>{
         //// all drive slice
+        builder.addCase(getAllDrives.pending,(state,action)=>{
+            state.loading=true;
+            // state.drives=action.payload;
+        })
         builder.addCase(getAllDrives.fulfilled,(state,action)=>{
             state.loading=false; 
             state.drives=action.payload;
@@ -29,11 +33,7 @@ export const driveSlice=createSlice({
             state.loading=false;
             state.error=action.error;
         })
-        builder.addCase(getAllDrives.pending,(state,action)=>{
-            state.loading=true;
-            // state.drives=action.payload;
-        })
-       // get Single Slice
+        // get Single Slice
         builder.addCase(getSingleDrive.fulfilled,(state,action)=>{
             state.loading=false;
             state.drive=action.payload;
