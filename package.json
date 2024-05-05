@@ -64,7 +64,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://campus2campus.onrender.com",
+  "proxy": "https://campus2campus-1.onrender.com",
   "devDependencies": {
     "tailwindcss": "^3.4.3"
   }
