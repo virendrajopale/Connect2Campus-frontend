@@ -42,17 +42,24 @@ export const AllDrives = () => {
                     <div onClick={() => setGetId(dt)}>
                       <DriveItem Drive={dt} />
                     </div>
+                       
                     <div className="p-2 gap-4 flex flex-col text-sm justify-between items-center">
-                      <button
-                        type="button"
-                        className="btn btn-success mx-2 text-white"
-                        onClick={() => navigate(`/drives/InterestedStu/${dt._id}`)}
+                    <Link
+                        to={`/drives/InterestedStu/${dt._id}`}
+                        
+                        className="text-white col-span-2 relative inline-flex bg-gray-500/90 hover:bg-green-600/100 items-center justify-center 
+                        w-full  overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-black-500 rounded-md shadow-md group p-4"
                       >
-                        Applications
-                      </button>
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full group-hover:translate-x-0 ease">
+                          <FaUserCheck />
+                        </span>
+                        <span className="absolute flex items-center justify-center w-full h-full text-black-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+                          Applications
+                        </span>
+                      </Link>
                       <Link
                         to={`/drives/selectedStudents/${dt._id}`}
-                        type="submit"
+                        
                         className="text-white col-span-2 relative inline-flex bg-gray-500/90 hover:bg-green-600/100 items-center justify-center 
                         w-full  overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-black-500 rounded-md shadow-md group p-4"
                       >
