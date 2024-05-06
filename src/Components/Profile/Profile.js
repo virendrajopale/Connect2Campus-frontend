@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { displayEducation, displayExperience, displayProject, fetchMyProfile } from "../../redux/Actions/StudentAction";
@@ -108,9 +108,14 @@ const Profile = () => {
      <>
      
      </>
-      <PopUp popup={educationPopup} setPopup={setEducationPopup} msg={"Education Popup Message"} >
+   <Suspense fallback={<div>Loading...</div>}>{
+
+     <PopUp popup={educationPopup} setPopup={setEducationPopup} msg={"Education Popup Message"} >
         <Education profileid={profile && profile._id} education={education}/>
       </PopUp>
+   }
+
+   </Suspense>
 
       <PopUp popup={experiencePopup} setPopup={setExperiencePopup} msg={"Experience Popup Message"} >
         <Experience profileid={profile && profile._id} experience={experience}/>
@@ -119,6 +124,7 @@ const Profile = () => {
       <PopUp popup={projectPopup} setPopup={setProjectPopup} msg={"Project Popup Message"} >
         <Projects profileid={profile && profile._id} project={project}/>
       </PopUp>
+    
     </div>
   );
 }

@@ -34,20 +34,20 @@ const AddEducation = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
+    <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 bg-white/30 backdrop-blur-md  p-8 rounded-lg shadow-md">
         <div>
           <h2 className="text-center text-3xl font-extrabold text-gray-900 flex items-center justify-center">
             <FaGraduationCap className="mr-2 text-indigo-600" />
             Add Education
           </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
+          <p className="mt-2 text-center text-sm ">
             Title and description must have a minimum length of 5 characters
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-gray-700 flex items-center">
+            <label htmlFor="title" className="block text-sm font-medium  flex items-center">
               <FaGraduationCap className="mr-2 text-indigo-600" />
               Education Level
             </label>
@@ -68,7 +68,7 @@ const AddEducation = () => {
             </select>
           </div>
           <div>
-            <label htmlFor="school" className="block text-sm font-medium text-gray-700 flex items-center">
+            <label htmlFor="school" className="block text-sm font-medium  flex items-center">
               <FaUniversity className="mr-2 text-indigo-600" />
               School/College/University
             </label>
@@ -84,7 +84,7 @@ const AddEducation = () => {
             />
           </div>
           <div>
-            <label htmlFor="start_year" className="block text-sm font-medium text-gray-700 flex items-center">
+            <label htmlFor="start_year" className="block text-sm font-medium  flex items-center">
               <FaCalendarAlt className="mr-2 text-indigo-600" />
               Starting Year
             </label>
@@ -102,7 +102,7 @@ const AddEducation = () => {
             />
           </div>
           <div>
-            <label htmlFor="end_year" className="block text-sm font-medium text-gray-700 flex items-center">
+            <label htmlFor="end_year" className="block text-sm font-medium  flex items-center">
               <FaCalendarAlt className="mr-2 text-indigo-600" />
               Ending Year (completed or expecting to complete)
             </label>
@@ -120,7 +120,7 @@ const AddEducation = () => {
             />
           </div>
           <div>
-            <label htmlFor="percentage" className="block text-sm font-medium text-gray-700 flex items-center">
+            <label htmlFor="percentage" className="block text-sm font-medium  flex items-center">
               <FaPercentage className="mr-2 text-indigo-600" />
               Overall Percentage/CGPA
             </label>

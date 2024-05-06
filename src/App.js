@@ -29,6 +29,7 @@ import DriveStudents from "./Components/Drives/DriveStudents";
 import Contact from "./Pages/Contact";
 import LoginImage from "./Pages/LoginImage";
 import Loader from "./Pages/Loader";
+import Example from "./Pages/Accordian";
 
 
 
@@ -74,6 +75,7 @@ const App = () => {
         <Route path="/user/admin/login" element={<LogSign role={"Admin"} setrole={setrole} />} />
         <Route path="/user/deptAdmin/login" element={<LogSign role={"TPO_Dept_Admin"} setrole={setrole} />} />
         <Route path="/drives" element={ <AllDrives /> } />
+        <Route path="/temp" element={ <Example /> } />
         {/* <Route path="/singledrives/:id" element={isLoggedIn ? <SingleDrive /> : <Navigate to="/user/login" />} /> */}
         <Route path="/drives/new" element={isLoggedIn ? <AddDriveForm /> : <Navigate to="/user/login" />} />
         <Route path="/user/contact/TPO" element={isLoggedIn ? <Contact /> : <Navigate to="/user/login" />} />

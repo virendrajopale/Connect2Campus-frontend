@@ -17,7 +17,7 @@ const NoteItem = ({ education,profileid }) => {
     };
 
     return (
-        <div className=" p-4 rounded-lg shadow-neumorphic">
+        <div className=" p-4 rounded-lg shadow-neumorphic w-[60%]">
             <div className="flex justify-between items-center mb-2">
                 <h3 className="text-2xl font-bold">{education.title}</h3>
                 <div className="flex items-center space-x-2">
