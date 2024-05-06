@@ -52,7 +52,7 @@ const App = () => {
       <Navbar  role={role} />  
       <Toaster/>
       { 
-      <div className={`${  role!=='Student' && role!=null ?"grid grid-cols-8 w-full":""} bg-[#0b1024]  h-screen bg-[url('./Assets/color-bars.svg')] `}>
+      <div className={`${  role!=='Student' && role!=null ?"grid grid-cols-8 w-full":""} bg-[#3C5B6F]  h-screen bg-[url('')] `}>
 
       { 
         role!=='Student' && role!=null ?
