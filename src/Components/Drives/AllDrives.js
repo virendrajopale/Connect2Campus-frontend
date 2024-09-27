@@ -58,7 +58,7 @@ export const AllDrives = () => {
                         </span>
                       </Link>
                       <Link
-                        to={`/drives/selectedStudents/${dt._id}`}
+                        to={`/drives/selectedStudent/${dt._id}`}
                         
                         className="text-white col-span-2 relative inline-flex bg-gray-500/90 hover:bg-green-600/100 items-center justify-center 
                         w-full  overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-black-500 rounded-md shadow-md group p-4"
@@ -70,18 +70,31 @@ export const AllDrives = () => {
                           Selected Candidates
                         </span>
                       </Link>
-                      {role !== "TPO_Admin" && (
+                      {role && role === "TPO_Admin" && (<Link
+                        to={`/drives/EligibleStu/${dt._id}`}
+                        
+                        className="text-white col-span-2 relative inline-flex bg-gray-500/90 hover:bg-green-600/100 items-center justify-center 
+                        w-full  overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-black-500 rounded-md shadow-md group p-4"
+                      >
+                        <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full group-hover:translate-x-0 ease">
+                          <FaUserCheck />
+                        </span>
+                        <span className="absolute flex items-center justify-center w-full h-full text-black-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+                          Eligible Candidates
+                        </span>
+                      </Link>)}
+                      {role && role !== "TPO_Admin" && (
                         <Link
                           to={applied ? "" : `/apply/${dt._id}`}
                           onClick={applied ? toast1 : null}
                           type="submit"
-                          className="text-white col-span-2 relative inline-flex bg-gray-500/90 hover:bg-green-600/100 items-center justify-center p-4 
+                          className="text-white col-span-2  relative inline-flex bg-gray-500/90 hover:bg-green-600/100 items-center justify-center p-4 
                           w-full  overflow-hidden font-medium text-black-600 transition duration-300 ease-out border-2 border-black-500 rounded-md shadow-md group"
                         >
                           <span className="absolute inset-0 flex items-center justify-center w-full h-full duration-300 -translate-x-full group-hover:translate-x-0 ease">
                             <FaRegPaperPlane />
                           </span>
-                          <span className="absolute flex items-center justify-center w-full h-full text-black-500 transition-all duration-300 transform group-hover:translate-x-full ease">
+                          <span className="absolute flex items-center justify-center text-center  w-full h-full text-black-500 transition-all duration-300 transform group-hover:translate-x-full ease">
                             {applied ? applicationStatus : 'Apply'}
                           </span>
                         </Link>

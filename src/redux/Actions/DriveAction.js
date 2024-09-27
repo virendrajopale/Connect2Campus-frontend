@@ -62,6 +62,7 @@ export const applyToDrive=createAsyncThunk('applyToDrive',async(id,{rejectWithVa
 })
 //get selected students list of a drive
 export const getStudsOfDrive=createAsyncThunk('getStudsOfDrive',async(id,{rejectWithValue})=>{
+   console.log(id);
    try{
       const data=await axios.get(`${PORT}/Drive/getSelectedStu/${id}`,{
          headers: {
@@ -82,6 +83,7 @@ export const getStudByCategory=createAsyncThunk('getStudByCategory',async({id,ca
             "auth-tocken": sessionStorage.getItem('tocken')
         }
       });
+      console.log(studData.data.students);
       return studData.data.students;
    }
    catch(err){
@@ -89,10 +91,15 @@ export const getStudByCategory=createAsyncThunk('getStudByCategory',async({id,ca
    }
 })
 
-//Accept the pplication of a student for the particular drive => Must login as Admin
-export const addEligibleStudent=createAsyncThunk('addEligibleStudent',async(id,{rejectWithValue})=>{
+//Accept the Application of a student for the particular drive => Must login as Admin
+export const addEligibleStudent=createAsyncThunk('addEligibleStudent',async({id,stuId},{rejectWithValue})=>{
+   console.log(id,stuId);
    try{
-      const studData=await axios.post(`${PORT}/Drive/addEligibleStu//${id}`);
+      const studData=await axios.post(`${PORT}/Drive/addEligibleStu/${id}`,{stuId},{
+         headers: {
+            "auth-tocken": `${sessionStorage.getItem('tocken')}`
+        }
+      });
       return studData.data;
    }
    catch(err){
@@ -101,9 +108,13 @@ export const addEligibleStudent=createAsyncThunk('addEligibleStudent',async(id,{
 })
 
 //Mark the student as placed in particular drive => Must login as Admin
-export const addSelectedStudent=createAsyncThunk('addSelectedStudent',async(id,{rejectWithValue})=>{
+export const addSelectedStudent=createAsyncThunk('addSelectedStudent',async({id,stuId},{rejectWithValue})=>{
    try{
-      const studData=await axios.post(`${PORT}/Drive/addSelectedStu/${id}`);
+      const studData=await axios.post(`${PORT}/Drive/addSelectedStu/${id}`,{stuId},{
+         headers: {
+            "auth-tocken": `${sessionStorage.getItem('tocken')}`
+        }
+      });
       return studData.data;
    }
    catch(err){

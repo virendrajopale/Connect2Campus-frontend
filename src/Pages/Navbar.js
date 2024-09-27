@@ -14,11 +14,11 @@ const Navbar = ({ role }) => {
   };
 console.log(role)
 const links=[
-  {
-  linkTo:"/drives/new",
-  rol:["TPO_Admin"] ,
-  text:" New Drives"
-  },
+  // {
+  // linkTo:"/drives/new",
+  // rol:["TPO_Admin"] ,
+  // text:" New Drives"
+  // },
   
     {
       linkTo:"/drives",
@@ -59,7 +59,7 @@ const links=[
         </div>
         <ul className=" md:flex space-x-4">
         
-          {isLoggedIn && role === 'TPO_Admin' && (
+          {/* {isLoggedIn && role === 'TPO_Admin' && (
             <li>
             <Link
               to="/drives/new"
@@ -71,7 +71,7 @@ const links=[
                   <span className=' absolute left-0 text-blue-400 font-bold translate-y-[120%] rotate-12 inline-block p-1 transition duration-500 ease-out group-hover:translate-y-0 group-hover:rotate-0 font-Texturina'> Drives</span>
                 </div>
             </Link>
-          </li>)}
+          </li>)} */}
           <li>
             <Link
               to="/drives"

@@ -38,7 +38,7 @@ const AddDriveForm = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    dispatch(createDrive())
+    dispatch(createDrive(data))
     .unwrap()
     .then(()=>{
 

@@ -8,7 +8,7 @@ const StudentsList = () => {
     const dispatch = useDispatch();
     const { loading, error, students } = useSelector((state) => state.drives);
     const { id } = useParams();
-
+   console.log(id);
     useEffect(() => {
         dispatch(getStudsOfDrive(id));
        
@@ -33,7 +33,7 @@ const StudentsList = () => {
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Department</th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Year</th>
                         <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Placed</th>
-                        <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ckeck</th>
+                        {/* <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Ckeck</th> */}
                     </tr>
                 </thead>
                 <tbody className="bg-gray-700 divide-y divide-white">
@@ -46,10 +46,10 @@ const StudentsList = () => {
                             <td className="px-6 py-4 whitespace-nowrap">{student.profile.dept}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{student.profile.year}</td>
                             <td className="px-6 py-4 whitespace-nowrap">{student.profile.placed ? 'Yes' : 'No'}</td>
-                            <td>
+                            {/* <td>
                               <button onClick={()=>dispatch()}>Yes</button>
                               <button>No</button>
-                            </td>
+                            </td> */}
                         </tr>
                     ))}
                 </tbody>

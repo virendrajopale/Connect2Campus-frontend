@@ -49,7 +49,7 @@ const App = () => {
 
   return (
     <>
-      <Navbar  role={role} />  
+     { <Navbar  role={role} />  }
       <Toaster/>
       { 
       <div className={`${  role!=='Student' && role!=null ?"grid grid-cols-8 w-full":""} bg-[#3C5B6F]  h-screen bg-[url('')] `}>
@@ -86,7 +86,7 @@ const App = () => {
         <Route path="/allstudents/third" element={isLoggedIn ? <AllStudents year={"Third Year"}/> : <Navigate to="/user/login" />} />
         <Route path="/allstudents/final" element={isLoggedIn ? <AllStudents year={"Final Year"}/> : <Navigate to="/user/login" />} />
         <Route path="/drives/stdList" element={isLoggedIn ? <DriveItem role={role} /> : <Navigate to="/user/login" />} />
-        <Route path="/drives/selectedStudents/:id" element={isLoggedIn ? <StudentsList /> : <Navigate to="/user/login" />} />
+        <Route path="/drives/selectedStudent/:id" element={isLoggedIn ? <StudentsList /> : <Navigate to="/user/login" />} />
         <Route path="/PendingRequests" element={isLoggedIn ? <Requests /> : <Navigate to="/user/login" />} />
         <Route path="/myprofile/addEducation" element={isLoggedIn ? <AddEducation /> : <Navigate to="/user/login" />} />
         <Route path="/myprofile/addProject" element={isLoggedIn ? <AddProject /> : <Navigate to="/user/login" />} />

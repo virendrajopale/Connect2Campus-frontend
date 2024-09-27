@@ -131,7 +131,7 @@ const Sidebar = () => {
                 className={` origin-left overflow-hidden  font-medium duration-300 ${
                   !open && "scale-110"}`}
               >
-                New
+                All Drives
               </h1>
             </Link>
             <Link  className="flex gap-x-4  items-center cursor-pointer overflow-hidden  active:text-red-500 focus:text-red-500 focus:scale-110 duration-200 "  to={"/allstudents"}>
